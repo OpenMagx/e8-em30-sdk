@@ -1,0 +1,141 @@
+
+
+// Copyright (c) 24-Apr-07 - 2008 Motorola, Inc. All rights reserved.
+
+
+#ifndef AM_DEFS_H
+#define AM_DEFS_H
+
+#ifndef SYSTEM_CHANNEL
+#define SYSTEM_CHANNEL "EZX/System"
+#endif
+
+#define AM_APP_REGISTRY_CHANNEL "AM/AppRegistry/Channel"
+
+#define AM_LAUNCHER_SERVER_SOCKET_PATH "/tmp/am_launcher_server"
+#define AM_POWEROFF_SERVER_SOCKET_PATH "/tmp/am_socketserver"
+
+#define AM_SOCKET_PATH "/tmp/am_socketserver"
+
+#define AM_TEMP_FILEPATH "/tmp/am_temp"
+
+#define SYSTEM_MSG_MMC_STATUS_UPDATED "MmcsdShmUpdate(int)"
+
+#define AM_MSG_SET_AUTO_START_ENABLED "setAutoStartEnabled()"
+#define AM_MSG_UPDATE_FOLDER_ORDER "updateFolderOrder()"
+#define AM_MSG_UPDATE_REGISTRY_OBJECT_APPEARANCE "updateRegistryObjectAppearance()"
+#define AM_MSG_MOVE_REGISTRY_OBJECT "moveRegistryObject()"
+#define AM_MSG_ADD_APP_OBJECT "appApplicatonObject()"
+#define AM_MSG_UPDATE_REGISTRY_OBJECT "updateRegistryObject()"
+#define AM_MSG_REMOVE_APP_OBJECT "removeApplicationObject()"
+
+#define AM_MSG_POWERDOWN "powerDown()"
+#define AM_MSG_RESTART "restart()"
+#define AM_MSG_SHUTDOWNUI "shutDownUI()"
+#define AM_MSG_MASTERRESET "masterReset()"
+#define AM_MSG_MASTERCLEAR "masterClear()"
+#define AM_MSG_DISABLEUI "disableUI()"         
+
+#define AM_MSG_GETAPPSTATE "getAppState()"
+#define AM_MSG_UPDATEAPPSTATE "updateAppState()"
+#define AM_MSG_GETAPPSTATES "getAppStates()"
+
+#define AM_LAUNCHER_APP_STATE_UPDATED_EVENT "/motorola/am/launcher/AppStateUpdated"
+#define AM_LAUNCHER_CONTAINER_STATE_UPDATED_EVENT "/motorola/am/launcher/ContainerStateUpdated"
+#define AM_PACKAGEMGR_NOTIFICATION_EVENT "/motorola/am/packagemgr/notification"
+#define AM_PACKAGEMGR_INVOKE_EVENT "/motorola/am/packagemgr/invoke"
+#define AM_MASS_STORAGE_MODE_UPDATED_EVENT "/motorola/am/massstorage/StateUpdated"
+
+#define AM_SETUPCONFIG_FILENAME "lj_am.cfg"
+#define AM_SETUPCONFIG_GROUPNAME_PACKAGE_MANAGER "PackageManager"
+#define AM_SETUPCONFIG_KEYNAME_INTERNAL_INSTALL_DIR "IntInstallDir"
+#define AM_SETUPCONFIG_KEYNAME_EXTERNAL_INSTALL_DIR "ExtInstallDir"
+#define AM_SETUPCONFIG_KEYNAME_INTERNAL_TEMP_DIR "IntTempDir"
+#define AM_SETUPCONFIG_KEYNAME_EXTERNAL_TEMP_DIR "ExtTempDir"
+#define AM_SETUPCONFIG_KEYNAME_AUTO_INSTALL_DIR "AutoInstallDir"
+#define AM_SETUPCONFIG_KEYNAME_DEFAULT_MENU_LOC "DefaultMenuLoc"
+#define AM_SETUPCONFIG_KEYNAME_GDB_SERVER "GdbServerPath"
+#define AM_SETUPCONFIG_KEYNAME_GDB_SERVER_ARGS "GdbServerArgs"
+#define AM_SETUPCONFIG_KEYNAME_PLATFORM_VERSION "PlatformVersion"
+
+typedef enum {
+    AM_RESULT_SUCCESS = 0,
+    AM_RESULT_FAILURE = 1,
+    AM_RESULT_INVALID_REQUEST = 2,
+    AM_RESULT_BUSY = 3,
+    AM_RESULT_INVALID_PARAMETER = 4,
+    AM_RESULT_IO_ERROR = 5,
+    AM_RESULT_INSUFFICIENT_MEMORY = 6,
+    AM_RESULT_NOT_INITIALIZED = 7,
+    AM_RESULT_OBJECT_NOT_FOUND = 8,
+    AM_RESULT_INCORRECT_OBJECT_TYPE = 9,
+    AM_RESULT_NOT_ALLOWED = 10,
+    AM_RESULT_UNKNOWN_APPLICATION = 11,
+    AM_RESULT_NO_CONTAINER_AVAILABLE = 12,
+    AM_RESULT_REQUEST_IN_PROGRESS = 13
+} AM_RESULT_CODE_T;
+
+enum AM_APPLICATION_STATE_T {
+    INVALID_STATE = -1,
+    NOT_RUNNING = 0,
+    RUNNING_ON_FOREGROUND = 1,
+    RUNNING_ON_BACKGROUND = 2,
+    SUSPENDED_ON_FOREGROUND = 3,
+    SUSPENDED_ON_BACKGROUND = 4,
+    RUNNING_OUTSIDE_AM = 5,
+    TERMINATED = NOT_RUNNING
+};
+
+enum AM_CONTAINER_STATE_T {
+    CONTAINER_INVALID_STATE = -1,
+    CONTAINER_NOT_RUNNING = 0,
+    CONTAINER_RUNNING = 1,
+    CONTAINER_TERMINATED = CONTAINER_NOT_RUNNING
+};
+
+enum APPKILLINGPOLICY_T
+{
+    KILLING_MSG_BY_NOACTION = 0,
+    KILLING_MSG_BY_POWEROFF,
+    KILLING_MSG_BY_IDLESCREEN,
+    KILLING_MSG_BY_MAINSCREEN,
+    KILLING_MSG_BY_ANOTHER_APP,
+    KILLING_MSG_BY_DEDICATED_KEY,
+    KILLING_MSG_BY_VOICE_COMMAND,
+    KILLING_MSG_BY_MASS_STORAGE,
+    KILLING_MSG_BY_LANGUAGE_CHANGE,
+    KILLING_MSG_BY_THEME_CHANGE,
+    KILLING_MSG_BY_MASTER_CLEAR,
+    KILLING_MSG_BY_MASTER_RESET,
+    KILLING_MSG_BY_MASS_STORAGE_ENTER,
+    KILLING_MSG_BY_MASS_STORAGE_EXIT
+};
+
+enum AM_PACKAGEMGR_NOTIFICATION_EVENT_T {
+    INVALID_NOTIFICATION_EVENT = -1,
+    APPLICATION_INSTALLED = 0,
+    APPLICATION_UPDATED, 
+    APPLICATION_UNINSTALLED
+};
+
+enum AM_PACKAGEMGR_INVOKE_EVENT_T {
+    INVALID_INVOKE_EVENT = -1,
+    INSTALL_MPKG = 0,
+    MOVE_MPKG, 
+    UNINSTALL_MPKG
+};
+
+#define MIME_ACTION_EDIT        "edit"
+#define MIME_ACTION_EXECUTE     "execute"
+#define MIME_ACTION_INSTALL     "install"
+#define MIME_ACTION_NEW         "new"
+#define MIME_ACTION_OPEN        "open"
+#define MIME_ACTION_PRINT       "print"
+#define MIME_ACTION_SAVE        "save"
+#define MIME_ACTION_SELECT      "select"
+#define MIME_ACTION_SEND        "send"
+
+#define  UNIVERSAL_MIME_TYPE   "any/any"
+
+#endif 
+

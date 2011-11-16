@@ -1,0 +1,219 @@
+
+
+// Copyright (c) 22-Nov-06 - 2008 Motorola, Inc. All rights reserved.
+
+
+#ifndef TAPI_USSD_APPDEF_H     
+#define TAPI_USSD_APPDEF_H
+
+#ifdef __cplusplus 
+extern "C" {
+#endif
+
+#include "TAPI_General.h"
+#include "TAPI_AppMsgId.h"
+
+#define TAPI_USSD_REQ_STRING_MAX_LENGTH    400
+
+#define TAPI_USSD_RSP_STRING_MAX_LENGTH    400
+
+#define TAPI_USSD_MAX_SS_CLASS_NUMBER   12
+
+#define TAPI_USSD_MAX_STK_RESULT_LENGTH 256
+
+typedef enum    _TAPI_USSD_TYPE_E
+{
+    TAPI_USSD_NETWORK_NOTIFY_EV = 0x00, 
+    TAPI_USSD_NETWORK_REQUEST_EV,       
+    TAPI_USSD_COMPLETE_EV,              
+} TAPI_USSD_TYPE_E;
+
+typedef enum    _TAPI_USSD_SS_MODE_E
+{
+    TAPI_USSD_SS_MODE_DISABLE_EV        = 13,   
+    TAPI_USSD_SS_MODE_ENABLE_EV         = 12,   
+    TAPI_USSD_SS_MODE_QUERY_EV          = 14,   
+    TAPI_USSD_SS_MODE_REGISTRATION_EV   = 10,   
+    TAPI_USSD_SS_MODE_ERASURE_EV        = 11,   
+    TAPI_USSD_SS_MODE_CHANGE_PASSWD_EV  = 17    
+} TAPI_USSD_SS_MODE_E;
+
+typedef enum    _TAPI_USSD_SS_CAUSE_E
+{
+    TAPI_USSD_SS_CAUSE_CLIP_EV         = 0x00,          
+    TAPI_USSD_SS_CAUSE_CLIR_EV,                         
+    TAPI_USSD_SS_CAUSE_COLP_EV,                         
+    TAPI_USSD_SS_CAUSE_COLR_EV,                         
+    TAPI_USSD_SS_CAUSE_CALL_FORWARD_ALL_EV,             
+    TAPI_USSD_SS_CAUSE_CALL_FORWARD_UNCONDITIONAL_EV,   
+    TAPI_USSD_SS_CAUSE_CALL_FORWARD_CONDITIONAL_EV,     
+    TAPI_USSD_SS_CAUSE_CALL_FORWARD_ON_BUSY_EV,         
+    TAPI_USSD_SS_CAUSE_CALL_FORWARD_NO_ANSWER_EV,       
+    TAPI_USSD_SS_CAUSE_CALL_FORWARD_NOT_REACHABLE_EV,   
+    TAPI_USSD_SS_CAUSE_CALL_WAITING_EV,                 
+    TAPI_USSD_SS_CAUSE_BAR_ALL_EV,                      
+    TAPI_USSD_SS_CAUSE_BAR_OUTGOING_EV,                 
+    TAPI_USSD_SS_CAUSE_BAR_OUTGOING_ALL_EV,             
+    TAPI_USSD_SS_CAUSE_BAR_OUTGOING_INTERNATIONAL_EV,   
+    TAPI_USSD_SS_CAUSE_BAR_OUTGOING_EXCEPT_HOME_EV,     
+
+    TAPI_USSD_SS_CAUSE_BAR_INCOMING_EV,                 
+    TAPI_USSD_SS_CAUSE_BAR_INCOMING_ALL_EV,             
+    TAPI_USSD_SS_CAUSE_BAR_INCOMING_ALL_WHEN_INTERNATIONAL_ROAM_EV, 
+
+    TAPI_USSD_SS_CAUSE_ALL_SS_EV                        
+} TAPI_USSD_SS_CAUSE_E;
+
+typedef enum    _TAPI_USSD_SS_STATUS_E
+{
+    TAPI_USSD_SS_STATUS_NOUSE_EV     = 0x00, 
+    TAPI_USSD_SS_STATUS_DISABLED_EV,         
+    TAPI_USSD_SS_STATUS_ENABLED_EV           
+} TAPI_USSD_SS_STATUS_E;
+
+typedef enum    _TAPI_USSD_SS_CLASS_E
+{
+    TAPI_USSD_SS_CLASS_NOUSE_EV     = 0x00, 
+    TAPI_USSD_SS_CLASS_INVALID_EV,          
+    TAPI_USSD_SS_CLASS_VOICE_EV,            
+    TAPI_USSD_SS_CLASS_DATA_EV,             
+    TAPI_USSD_SS_CLASS_FAX_EV,              
+    TAPI_USSD_SS_CLASS_SMS_EV,              
+    TAPI_USSD_SS_CLASS_CDATA_SYNC_EV,       
+    TAPI_USSD_SS_CLASS_CDATA_ASYNC_EV,      
+    TAPI_USSD_SS_CLASS_PACKET_DATA_EV,      
+    TAPI_USSD_SS_CLASS_PAD_ACCESS_EV,       
+    TAPI_USSD_SS_CLASS_AUX_SPEECH_EV,       
+    TAPI_USSD_SS_CLASS_UNKNOWN_EV,          
+    TAPI_USSD_SS_CLASS_ALL_BS_EV            
+} TAPI_USSD_SS_CLASS_E;
+
+typedef enum _TAPI_USSD_PUB_MMI_CMD_E 
+{ 
+    TAPI_USSD_PUB_MMI_CMD_PLACE_CALL_EV,  
+    TAPI_USSD_PUB_MMI_CMD_USSD_EV         
+} TAPI_USSD_PUB_MMI_CMD_E;
+
+typedef enum    _TAPI_USSD_SS_CLIR_SUBOPT_E
+{
+    TAPI_USSD_SS_CLIR_NOT_SPECIFIED_EV            = 0x00,
+    TAPI_USSD_SS_CLIR_PERMANENT_EV,
+    TAPI_USSD_SS_CLIR_TEMP_DEF_RESTRICT_EV,
+    TAPI_USSD_SS_CLIR_TEMP_DEF_ALLOW_EV
+} TAPI_USSD_SS_CLIR_SUBOPT_E;
+
+typedef enum    _TAPI_USSD_CALL_CONTROL_RESULT_E
+{
+    TAPI_USSD_CALL_CONTROL_ALLOW_EV     = 0x00, 
+    TAPI_USSD_CALL_CONTROL_NOTALLOW_EV,         
+    TAPI_USSD_CALL_CONTROL_MODIFY_NUMBER_EV,    
+
+    TAPI_USSD_CALL_CONTROL_MODIFY_TO_CALL_EV    
+
+} TAPI_USSD_CALL_CONTROL_RESULT_E;
+
+typedef enum _TAPI_USSD_PASSWORD_GUIDANCE_E 
+{ 
+    TAPI_USSD_PASSWORD_GUIDANCE_ENTER_PASSWD       = 0, 
+    TAPI_USSD_PASSWORD_GUIDANCE_ENTER_NEW_PASSWD      , 
+    TAPI_USSD_PASSWORD_GUIDANCE_REENTER_NEW_PASSWD    , 
+} TAPI_USSD_PASSWORD_GUIDANCE_E;
+
+enum _TAPI_USSD_TYPE_OF_NUMBER_E
+{
+    TAPI_USSD_TYPE_OF_NUMBER_NOT_SPECIFIED     = 0, 
+    TAPI_USSD_TYPE_OF_NUMBER_UNKNOWN,                
+    TAPI_USSD_TYPE_OF_NUMBER_INTERNATIONAL,         
+    TAPI_USSD_TYPE_OF_NUMBER_NATIONAL,              
+    TAPI_USSD_TYPE_OF_NUMBER_NETWORK_SPECIFIC,      
+    TAPI_USSD_TYPE_OF_NUMBER_DEDICATED_PAD,         
+    TAPI_USSD_TYPE_OF_NUMBER_INVALID,               
+
+};
+typedef UINT8 TAPI_USSD_TYPE_OF_NUMBER_E;
+
+enum _TAPI_USSD_NUMBER_PLAN_IDENTIFIER_E
+{
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_NOT_SPECIFIED = 0, 
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_UNKNOWN,           
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_ISDN,              
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_DATA,              
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_TELEX,             
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_NATIONAL,          
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_PRIVATE,           
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_INVALID,           
+
+};
+typedef UINT8 TAPI_USSD_NUMBER_PLAN_IDENTIFIER_E;
+
+enum _TAPI_USSD_STK_TYPE_E
+{
+    TAPI_USSD_STK_TYPE_NORMAL = 0,           
+    TAPI_USSD_STK_TYPE_PROACTIVE,            
+};
+typedef UINT8 TAPI_USSD_STK_TYPE_E;
+
+typedef struct  _TAPI_USSD_REQ_APP_MSG_S
+{
+
+    UINT16  numLen;         
+    BOOLEAN isDCSIncluded;  
+    UINT8   dcs;            
+    UINT8   number[TAPI_USSD_REQ_STRING_MAX_LENGTH]; 
+
+    TAPI_USSD_TYPE_OF_NUMBER_E          ton;  
+    TAPI_USSD_NUMBER_PLAN_IDENTIFIER_E  npi;  
+    TAPI_USSD_STK_TYPE_E                stk_type;       
+} TAPI_USSD_REQ_APP_MSG_S;
+
+typedef struct  _TAPI_USSD_RSP_APP_MSG_S
+{
+    TAPI_APP_MSGID_T    msgId;          
+    TAPI_USSD_TYPE_E    type;           
+    UINT16              stringLen;      
+    BOOLEAN             isDCSIncluded;  
+    UINT8               dcs;            
+    UINT8               string[TAPI_USSD_RSP_STRING_MAX_LENGTH];    
+
+} TAPI_USSD_RSP_APP_MSG_S;
+
+typedef struct  _TAPI_USSD_RSP_SS_APP_MSG_S
+{
+    TAPI_APP_MSGID_T        msgId;              
+    TAPI_USSD_SS_MODE_E     mode;               
+    TAPI_USSD_SS_CAUSE_E    reason;                 
+    TAPI_USSD_SS_STATUS_E   status[TAPI_USSD_MAX_SS_CLASS_NUMBER];   
+    TAPI_USSD_SS_CLASS_E    classtype[TAPI_USSD_MAX_SS_CLASS_NUMBER];     
+    TAPI_PHONE_NUMBER_A     forwadNumber[TAPI_USSD_MAX_SS_CLASS_NUMBER];  
+    UINT8                   atClassNumber;    
+    TAPI_USSD_SS_CLIR_SUBOPT_E subscription_option;  
+
+} TAPI_USSD_RSP_SS_APP_MSG_S;
+
+typedef struct  _TAPI_USSD_NOTIFY_STK_RESULT_MSG_S
+{
+    TAPI_APP_MSGID_T    msgId;                
+    UINT8               generalResult;        
+    UINT8               additionalResultLen;  
+
+    UINT8               ussdTextStringLen;    
+
+    UINT8               result[TAPI_USSD_MAX_STK_RESULT_LENGTH];        
+} TAPI_USSD_NOTIFY_STK_RESULT_MSG_S;
+
+typedef struct  _TAPI_USSD_NOTIFY_CALL_CONTROL_MSG_S
+{
+    TAPI_APP_MSGID_T                msgId;      
+    TAPI_USSD_CALL_CONTROL_RESULT_E result;     
+    TAPI_PHONE_NUMBER_A             ssNumber;   
+    BOOLEAN                         bAlphaIdPresent;
+    UINT16                          alphaIdLength;
+    TAPI_STK_ALPHAID_A              alphaId;
+} __attribute__( (packed) )  TAPI_USSD_NOTIFY_CALL_CONTROL_MSG_S;
+
+#ifdef __cplusplus
+}
+#endif 
+
+#endif  
+

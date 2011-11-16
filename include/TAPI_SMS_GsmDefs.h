@@ -1,0 +1,266 @@
+
+
+// Copyright (c) 22-Nov-06 - 2008 Motorola, Inc. All rights reserved.
+
+
+#ifndef TAPI_SMS_GSMDEFS_H
+#define TAPI_SMS_GSMDEFS_H
+
+#define  SMS_RPDU_MAX_LENGTH                250
+#define  SMS_TPDU_MAX_LENGTH                176
+#define  SMS_DELIVER_TPDU_MIN_LENGTH        13
+#define  SMS_SUBMIT_TPDU_MIN_LENGTH          7
+#define  SMS_COMMAND_TPDU_MIN_LENGTH         7
+#define  SMS_TP_STATUS_REPORT_MIN_LENGTH   (19)
+#define  SMS_RP_OA_MAX_LENGTH               13
+
+#define TAPI_SMS_COMMAND_FIRST_OCTECT_INDEX 0
+#define TAPI_SMS_COMMAND_MR_INDEX           1
+#define TAPI_SMS_COMMAND_PID_INDEX          2
+#define TAPI_SMS_COMMAND_CMD_TYPE_INDEX     3
+#define TAPI_SMS_COMMAND_MN_INDEX           4
+#define TAPI_SMS_COMMAND_DEST_ADDR_INDEX    5
+
+#define TAPI_SMS_TP_MTI_MASK         (0x03) 
+
+#define SMS_TP_RP_MASK          (0x80) 
+#define SMS_TP_RP_SET           (0x80) 
+
+#define SMS_TP_UDHI_MASK        (0x40) 
+#define SMS_TP_UDHI_SET         (0x40) 
+
+#define SMS_TP_VPF_MASK        (0x18) 
+#define SMS_TP_VPF_SET         (0x10) 
+
+#define SMS_TP_RD_MASK        (0x04) 
+#define SMS_TP_RD_SET         (0x04) 
+
+#define SMS_TP_SRI_MASK         (0x20) 
+#define SMS_TP_SRI_SET          (0x20) 
+
+#define SMS_TP_MMS_MASK         (0x04) 
+#define SMS_TP_MMS_SET          (0x00) 
+
+#define SMS_TP_SRR_MASK        (0x20)  
+#define SMS_TP_SRR_SET         (0x20)  
+
+#define SMS_TYPE_OF_NUMBER_MASK        (0x70)
+#define SMS_TP_MAX_PHONENUMBER_LENGTH     (20) 
+
+#define SMS_MAX_ADDR_VALUE_LENGTH (10)
+#define TAPI_SMS_TP_RA_MAX_LENGTH          (10)
+#define SMS_TP_OA_MIN_LENGTH          (2)
+#define SMS_TP_OA_MAX_LENGTH          (10)
+#define TAPI_SMS_TP_DA_MAX_LENGTH          (SMS_MAX_ADDR_VALUE_LENGTH + 2)
+#define SMS_TP_DA_MAX_LENGTH          (10)
+#define SMS_TP_DA_MIN_LENGTH          (2)  
+
+#define SMS_RP_MSG_MIN_LENGTH  (2)
+#define TAPI_SMS_RP_DATA_MIN_LENGTH (SMS_RP_MSG_MIN_LENGTH + 2)
+#define TAPI_SMS_RP_DA_MAX_LENGTH   (SMS_MAX_ADDR_VALUE_LENGTH + 2)
+
+#define SMS_TP_SCTS_LENGTH         (0x07) 
+#define SMS_TP_SCTS_BCD_DIGITS  (0x02)
+#define SMS_TP_SCTS_BCD_STR_LENGTH (SMS_TP_SCTS_BCD_DIGITS + 1)
+#define SMS_TP_MIN_ADDR_LENGTH     (0x02) 
+#define SMS_DCS_CLASS_1        (0x00)
+#define SMS_DCS_UNICODE        (0x08)
+
+#define TAPI_SMS_TP_DCS_CLASS_MASK_1    (0xF3)  
+#define TAPI_SMS_TP_DCS_CLASS_MASK_2    (0xD3)
+
+#define TAPI_SMS_TP_DCS_CLASS_0_VALUE_1 (0xF0)
+#define TAPI_SMS_TP_DCS_CLASS_0_VALUE_2 (0x10)
+
+#define TAPI_SMS_TP_DCS_CLASS_1_VALUE_1 (0xF1)
+#define TAPI_SMS_TP_DCS_CLASS_1_VALUE_2 (0x11)
+
+#define TAPI_SMS_TP_DCS_CLASS_2_VALUE_1 (0xF2)
+#define TAPI_SMS_TP_DCS_CLASS_2_VALUE_2 (0x12)
+
+#define TAPI_SMS_TP_DCS_CLASS_3_VALUE_1 (0xF3)
+#define TAPI_SMS_TP_DCS_CLASS_3_VALUE_2 (0x13)
+
+#define TAPI_SMS_TP_DCS_ENCODING_TYPE_MASK_1   (0xCC)  
+#define TAPI_SMS_TP_DCS_7_BIT_VALUE_1          (0x00)
+#define TAPI_SMS_TP_DCS_8_BIT_DATA_VALUE_1     (0x04)
+#define TAPI_SMS_TP_DCS_UNICODE_VALUE_1        (0x08)
+
+#define TAPI_SMS_TP_DCS_ENCODING_TYPE_MASK_2   (0xFC) 
+#define TAPI_SMS_TP_DCS_7_BIT_VALUE_2          (0xF0)
+#define TAPI_SMS_TP_DCS_8_BIT_DATA_VALUE_2     (0xF4)
+
+#define TAPI_SMS_TP_DCS_ENCODING_TYPE_MASK_3   (0xF0)
+#define TAPI_SMS_TP_DCS_7_BIT_VALUE_3          (0xC0)  
+#define TAPI_SMS_TP_DCS_7_BIT_VALUE_4          (0xD0)  
+#define TAPI_SMS_TP_DCS_UNICODE_VALUE_2        (0xE0)  
+
+#define TAPI_SMS_TP_DCS_COMPRESSED_MASK        (0xE0)
+#define TAPI_SMS_TP_DCS_COMPRESSED_VALUE       (0x20)
+
+#define SMS_DCS_MWI_GROUP_DISCARD                    0xC0
+#define SMS_DCS_MWI_GROUP_STORE_DFLT_ALPHABET        0xD0
+#define SMS_DCS_MWI_GROUP_STORE_UCS2_ALPHABET        0xE0
+#define SMS_DCS_CODING_GROUP_BITS                    0xF0
+
+#define SMS_DCS_MWI_ACTIVE_FLAG                      0x08
+
+#define SMS_DCS_MWI_CLASS_MASK                       0x03
+#define SMS_DCS_MWI_CLASS_VW_VALUE                   0x00
+#define SMS_DCS_MWI_CLASS_FAX_VALUE                  0x01
+#define SMS_DCS_MWI_CLASS_ELECTRONIC_VALUE           0x02
+#define SMS_DCS_MWI_CLASS_OTHER_VALUE                0x03
+
+#define SMS_DCS_VM_WAITING_INFO_MASK                 0xF3
+#define SMS_VM_NO_MSG_WAITING                        0X00
+#define SMS_VM_MSG_WAITING                           0X01
+#define SMS_VM_WAITING_UNAVAIL_INFO                  0x00
+#define SMS_VM_WAITING_UDH_INFO                      0x01
+#define SMS_VM_WAITING_DCS_INFO                      0x02
+#define SMS_VM_WAITING_CPHS_INFO                     0x04
+#define SMS_VM_WAITING_LINE1_INFO                    0x40
+#define SMS_VM_WAITING_LINE2_INFO                    0x80
+#define SMS_MASK_LSB                                 0x01
+#define SMS_MASK_MSB                                 0x80
+
+#define SMS_SIM_STORE_SM_MASK                    0x0F
+
+#define SMS_BASE_YEAR                  (1970)
+#define SMS_YEAR_1900                  (1900)
+#define SMS_YEAR_2000                  (2000)
+
+#define TAPI_SMS_GSM_TO_UCS2_CONVERSION_FACTOR (sizeof(W_CHAR))
+
+#define TAPI_SMS_TP_UD_MAX_7_BIT_LEN    (160)
+#define TAPI_SMS_TP_UD_MAX_8_BIT_LEN    (140)
+#define TAPI_SMS_TP_UD_MAX_UCS2_LENGTH     (TAPI_SMS_TP_UD_MAX_8_BIT_LENGTH / TAPI_SMS_GSM_TO_UCS2_CONVERSION_FACTOR)
+
+#define TAPI_SMS_TP_UD_MAX_7_BIT_LENGTH    (160)
+#define TAPI_SMS_TP_UD_MAX_8_BIT_LENGTH    (140)
+
+#define SMS_CONCATENATED_SM_IE_DATA_LENGTH                       0x03
+
+#define SMS_16_BITS_CONCATENATED_SM_IE_DATA_LENGTH               0x04
+
+#define SMS_8_BITS_PORTNUMBER_SM_IE_DATA_LENGTH                   0x02
+#define SMS_16_BITS_PORTNUMBER_SM_IE_DATA_LENGTH                 0x04
+
+#define SMS_SPECIAL_SMS_INDICATION_MASK                        0x03
+
+#define SMS_SPECIAL_SMS_INDICATION_IE_DATA_LENGTH              0x02
+
+#define SMS_SPECIAL_SMS_STORE_MASK                             0x80
+#define SMS_SPECIAL_SMS_STORE_BIT_SET                          0x80
+
+#define SMS_SPECIAL_EXTENDED_MESSAGE_INDICATION_MASK           0x1C
+#define SMS_SPECIAL_EXTENDED_MESSAGE_NONE                      0x00
+#define SMS_SPECIAL_EXTENDED_MESSAGE_VIDEO                     0x04
+
+#define TAPI_DCS_MWI_GROUP_DISCARD                  0xC0
+#define TAPI_DCS_MWI_GROUP_STORE_DFLT_ALPHABET      0xD0
+#define TAPI_DCS_MWI_GROUP_STORE_UCS2_ALPHABET      0xE0
+
+#define   TAPI_SMS_TP_SR_SUCCESS                                 0x02
+#define   TAPI_SMS_TP_SR_TEMP_ERROR_RETRY_START                  0x20
+#define   TAPI_SMS_TP_SR_TEMP_ERROR_RETRY_END                    0x3F
+#define   TAPI_SMS_TP_SR_PERM_ERROR_START                        0x40
+#define   TAPI_SMS_TP_SR_PERM_ERROR_END                          0x5F
+#define   TAPI_SMS_TP_SR_TEMP_ERROR_NORETRY_START                0x60
+#define   TAPI_SMS_TP_SR_TEMP_ERROR_NORETRY_END                  0x7F
+
+#define TAPI_SMS_GetAddrLenInOctet( bcdLen ) ( ( bcdLen + 1 ) / 2 )
+
+typedef enum    _TAPI_SMS_TP_MTI_E
+{
+    SMS_TP_MTI_DELIVER_EV       = 0,
+    SMS_TP_MTI_DELIVER_REPORT_EV= 0,
+    SMS_TP_MTI_SUBMIT_EV        = 1,
+    SMS_TP_MTI_SUBMIT_REPORT_EV = 1,
+    SMS_TP_MTI_STATUS_REPORT_EV = 2,
+    SMS_TP_MTI_COMMAND_EV       = 2,
+    SMS_TP_MTI_RESERVED_EV      = 3
+} TAPI_SMS_TP_MTI_E;
+
+typedef enum    _TAPI_SMS_TYPE_OF_NUMBER_E
+{
+    SMS_TYPE_OF_NUMBER_UNKNOWN_EV               = 0x00,
+    SMS_TYPE_OF_NUMBER_INTERNATIONAL_NUMBER_EV  = 0x10,
+    SMS_TYPE_OF_NUMBER_NATIONAL_NUMBER_EV       = 0x20,
+    SMS_TYPE_OF_NUMBER_NETWORK_SPECIFIC_EV      = 0x30,
+    SMS_TYPE_OF_NUMBER_SU_NUMBER_EV             = 0x40,
+    SMS_TYPE_OF_NUMBER_ALPHANUMERIC_EV          = 0x50,
+    SMS_TYPE_OF_NUMBER_ABBREVIATED_EV           = 0x60,
+    SMS_TYPE_OF_NUMBER_RESERVED_EV              = 0x70
+} TAPI_SMS_TYPE_OF_NUMBER_E;
+
+typedef enum    _TAPI_SMS_IE_TYPE_E
+{
+    TAPI_SMS_IE_TYPE_8_BITS_CONCATENATED_EV     = 0x00,
+    TAPI_SMS_IE_TYPE_SEPCIAL_SMS_INDICATION_EV  = 0x01,
+    TAPI_SMS_IE_TYPE_8_BITS_PORT_ADDRESSING_EV  = 0x04,
+    TAPI_SMS_IE_TYPE_16_BITS_PORT_ADDRESSING_EV = 0x05,
+    TAPI_SMS_IE_TYPE_16_BITS_CONCATENATED_EV    = 0x08,
+    TAPI_SMS_IE_TYPE_NOT_SUPPORT_EV
+} TAPI_SMS_IE_TYPE_E;
+
+typedef enum    _TAPI_SMS_SPECIAL_SMS_INDICATION_E
+{
+    TAPI_SMS_SPECIAL_SMS_INDICATION_VM_WAITING_EV   = 0x00,
+    TAPI_SMS_SPECIAL_SMS_INDICATION_FAX_WATING_EV   = 0x01,
+    TAPI_SMS_SPECIAL_SMS_INDICATION_EMAIL_WAITING_EV= 0x02,
+    TAPI_SMS_SEPCIAL_SMS_INDICATION_OTHER_WAITING_EV
+} TAPI_SMS_SPECIAL_SMS_INDICATION_E;
+
+typedef enum   _TAPI_SMS_IE_TYPE_EXTENDED_E
+{
+    TAPI_SMS_IE_LONG_SM_8BIT = 0x00,
+    TAPI_SMS_IE_SPECIAL_SM_IND = 0x01,
+    TAPI_SMS_IE_PORT_ADDRESS_8BIT = 0x04,
+    TAPI_SMS_IE_PORT_ADDRESS_16BIT = 0x05,
+    TAPI_SMS_IE_SMSC = 0x06,
+    TAPI_SMS_IE_UDH_IND = 0x07,
+    TAPI_SMS_IE_LONG_SM_16BIT = 0x08,
+    TAPI_SMS_IE_WCMP = 0x09,
+    TAPI_SMS_IE_TEXT_FORMATTING = 0x0A,
+    TAPI_SMS_IE_PRED_SOUND = 0x0B,
+    TAPI_SMS_IE_USER_DEF_SOUND = 0x0C,
+    TAPI_SMS_IE_PRED_ANIMATION = 0x0D,
+    TAPI_SMS_IE_LARGE_ANIMATION = 0x0E,
+    TAPI_SMS_IE_SMALL_ANIMATION = 0x0F,
+    TAPI_SMS_IE_LARGE_PIC = 0x10,
+    TAPI_SMS_IE_SMALL_PIC = 0x11,
+    TAPI_SMS_IE_VAR_PIC = 0x12,
+    TAPI_SMS_IE_USER_PROMPT_IND = 0x13,
+    TAPI_SMS_IE_EXTENDED_OBJ = 0x14,
+    TAPI_SMS_IE_REUSE_EXTENDED_OBJ = 0x15,
+    TAPI_SMS_IE_COMP_CONTROL = 0x16,
+    TAPI_SMS_IE_OBJ_DISTRIBUTION_IND = 0x17,
+    TAPI_SMS_IE_STD_WVG_OBJ = 0x18,
+    TAPI_SMS_IE_CHAR_SIZE_WVG_OBJ = 0x19,
+    TAPI_SMS_IE_EXT_OBJ_DATA_REQ_COMMAND = 0x1A,
+    TAPI_SMS_IE_RFC822_EMAIL_HEADER = 0x20,
+    TAPI_SMS_IE_HYPERLINK_FORMAT = 0x21,
+    TAPI_SMS_IE_REPLY_ADDRESS_ELEMENT = 0x22,
+    TAPI_SMS_IE_ENHANCED_VM_INFO = 0x23
+} TAPI_SMS_IE_TYPE_EXTENDED_E;
+
+typedef enum    _TAPI_SMS_DELIVER_STATUS_E
+{
+    TAPI_SMS_DELIVER_STATUS_TRANS_COMPLETE_EV   = 0,    
+    TAPI_SMS_DELIVER_STATUS_TEMP_ERROR_TRYING_EV= 0x20, 
+    TAPI_SMS_DELIVER_STATUS_PERMANENT_ERROR_EV  = 0x40, 
+    TAPI_SMS_DELIVER_STATUS_TEMP_ERROR_NO_TRY_EV= 0x60, 
+    TAPI_SMS_DELIVER_STATUS_OTHER_ERROR_EV  
+} TAPI_SMS_DELIVER_STATUS_E;
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+#ifdef __cplusplus
+}
+
+#endif
+
+#endif  
+

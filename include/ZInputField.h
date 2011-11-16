@@ -1,0 +1,86 @@
+#ifndef Z_INPUT_FIELD_H
+#define Z_INPUT_FIELD_H
+
+#include "ZKbInputField.h"
+#include <qobject.h>
+
+class ZInputField;
+class QWidget; 
+struct ZInputFieldData;
+
+class ZInputField:
+    public QObject, 
+    public ZKbInputField
+{
+public:
+    ZInputField(QWidget * editWidget); 
+    virtual ~ZInputField(); 
+
+  public: 
+    virtual void setDisplayAttr(QPoint& pos, int length,int attr);
+
+
+    virtual bool isCompletionEnable();
+    virtual bool isUADEnable();
+    virtual QString getSymbolList(bool bLongList );
+    virtual void getEmoticonList(QStringList& r_iconsList) ;
+    virtual void getDelimiter(QString&);
+    virtual int  getCapsState();
+    virtual void getChunkDelimiter(QString&);
+    virtual void  filterStringList(QStringList&);
+    bool isCompletionSupport();
+    bool isUADSupport();
+    
+
+public:
+    virtual void setInputModeDirection(int mode);
+    void setCharDirection(int flag);
+    virtual bool isRTLCharDirection() const; 
+    virtual void setFieldName(const char* fieldName);
+    virtual const char* getFieldName();
+    virtual int getType() const;
+    virtual void setType(int fieldType);
+    virtual void setOptions(int fieldOptions, long optionData = 0);
+    virtual long getOptions(int optionType) const;
+    virtual void setPreferredInputModes(const QValueList<QUuid> & preferredKbList, const QUuid & defaultKb); 
+    virtual bool getPreferredInputModes( QValueList<QUuid> & preferredKbList, QUuid & defaultKb) const; 
+    virtual QUuid getTextEntryMode();
+    virtual int editType() const;  
+    virtual int getWinId();
+    virtual int getTopWidgetWinId(); 
+    virtual void  enableFilter(bool enable); 
+    virtual QWidget * getEditorWidget();
+    virtual QString getText(QPoint pos , bool forward);
+    virtual QPoint getCursorPos(); 
+    virtual void setText(QString text);
+    virtual QPoint setCursorPos(QPoint start_pos, int offset, bool update = true);
+    virtual void setCursorType(int type);
+    virtual void setCursorFlag(int flag);
+    virtual void setCursorDirection(int direction);
+    virtual void setReverse(QPoint pos, int len, bool update=true);
+    virtual void clearReverse(bool update=true);
+    virtual void setUnderline(QPoint pos, int len, bool alternateAvailable, bool update=true);
+    virtual void clearUnderline(bool update=true);
+    virtual void deleteString(QPoint start_pos, int len,  bool autoUpdate=true );
+    virtual void insertString(QPoint start_pos, QString text, bool update=true);
+    virtual void insertString(QPoint start_pos , QString text , int reverse_start , int reverse_len , int underline_start , int underline_len , bool alternateAvailable,int cursorPos);
+    virtual void insertImage(QPoint start_pos, QString icon);
+    virtual QString format(QString text);
+    virtual QRect getFieldBounds();
+    virtual QRect getCharBounds(QPoint pos);
+    virtual QRect getUnderlineBounds(QPoint pos);
+    virtual int maxLength(); 
+    bool isReFocused();
+    void setRefocusdFlag(bool flag);
+    virtual bool  hasValidator(void);
+    virtual bool  canInsertString(const QString& string);
+    virtual void sendConfirmMessage();
+    virtual void forceKeyRelease(int keyCode);
+    virtual QStringList * getPreloadDictContent();
+
+protected: 
+    ZInputFieldData * d; 
+};
+
+#endif
+

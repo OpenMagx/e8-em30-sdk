@@ -1,0 +1,23 @@
+
+
+// Copyright (c) 14-Feb-08 - 2008 Motorola, Inc. All rights reserved.
+
+
+#ifndef IMPSEXTERNALTYPES_H_
+#define IMPSEXTERNALTYPES_H_
+
+enum IMPS_BRAND_ID_T
+{
+    IMPS_BRAND_ID_CUSTOM,        
+    IMPS_BRAND_ID_AOL,
+    IMPS_BRAND_ID_ICQ,
+    IMPS_BRAND_ID_YAHOO,
+    IMPS_BRAND_ID_MSN,
+    IMPS_BRAND_ID_VODAFONE,
+    IMPS_BRAND_ID_ORANGE,
+    IMPS_BRAND_ID_GOOGLE,
+    IMPS_BRAND_ID_TMOBILE,
+    IMPS_BRAND_ID_INVALID
+};
+
+#endif 
